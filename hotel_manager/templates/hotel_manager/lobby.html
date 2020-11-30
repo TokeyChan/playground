@@ -1,0 +1,72 @@
+{% load static %}
+<html>
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   Lobby
+  </title>
+  <meta content="user-scalable=yes, width=1240" name="viewport"/>
+  <link href="{% static 'hotel_manager/lobby.css' %}" rel="stylesheet"/>
+ </head>
+ <body>
+
+  <div id="main_container" style="margin: auto; position: relative; width: 1240px; height: 800px; overflow: hidden; -webkit-transform-style: flat;">
+   <div class="text" id="room_name">
+    {% if type == 'login' %}
+      Login
+    {% else %}
+      Raum {{ room_nr }}
+    {% endif%}
+   </div>
+   <div class="" id="avatar">
+   </div>
+   <div class="arrow" id="arrow_left">
+   </div>
+   <div class="arrow" id="arrow_right">
+   </div>
+   <input type="text" class="text" id="name_input"></input>
+   <div class="" id="join_button">
+     {% if type == 'login' %}
+      Raum erstellen
+     {% else %}
+      Raum beitreten
+     {% endif %}
+   </div>
+  </div>
+
+{% if type == "unlock" %}
+  <form action="{% url 'hotel_manager:hallway' %}" method="post" hidden="true">
+    {% csrf_token %}
+    <input type="text" name="join" value="true">
+    <input type="text" name="login" value="true">
+    <input type="text" name="name" value="" id="submit_name">
+    <input type="text" name="avatar" value="" id="submit_avatar">
+    <input type="text" name="room_nr" value="{{ room_nr }}">
+    <input type="text" name="room_key" value="{{ room_key }}">
+    <input type="submit" name="" value="" hidden="true" id="submit">
+  </form>
+
+{% elif type == "knock" %}
+  <form action="{% url 'hotel_manager:hallway' %}" method="post" hidden="true">
+    {% csrf_token %}
+    <input type="text" name="login" value="true">
+    <input type="text" name="name" value="" id="submit_name">
+    <input type="text" name="avatar" value="" id="submit_avatar">
+    <input type="text" name="room_nr" value="{{ room_nr }}">
+    <input type="submit" name="" value="" hidden="true" id="submit">
+  </form>
+
+{% elif type == "login" %}
+  <form action="{% url 'hotel_manager:hallway' %}" method="post" hidden="true">
+    {% csrf_token %}
+    <input type="text" name="login" value="true">
+    <input type="text" name="create" value="true">
+    <input type="text" name="name" value="" id="submit_name">
+    <input type="text" name="avatar" value="" id="submit_avatar">
+    <input type="submit" name="" value="" id="submit">
+  </form>
+{% endif %}
+
+ </body>
+ <script type="text/javascript" src="{% static 'hotel_manager/lobby.js' %}"></script>
+</html>

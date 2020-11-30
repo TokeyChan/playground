@@ -1,0 +1,70 @@
+{% load static %}
+<html>
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   Entrance
+  </title>
+  <meta content="user-scalable=yes, width=1240" name="viewport"/>
+  <link href="{% static 'hotel_manager/entrance.css'%}" rel="stylesheet"/>
+ </head>
+ <body>
+  <div id="main_container" style="margin: auto; position: relative; width: 1240px; height: 800px; overflow: hidden; -webkit-transform-style: flat;">
+   <div class="" id="title_box">
+    Eingangsbereich
+   </div>
+   <div class="button" id="create_room">
+    Raum erstellen
+   </div>
+
+   <div class="" id="current_user">
+     {% if player != None %}
+      Du bist eingeloggt als {{player.name}}!
+        {% if player.room_permissions|length != None %}
+          <br>
+          Du darfst in folgende Zimmer: <br>
+          {% for rp in player.room_permissions %}
+            Zimmer {{ rp.room_nr }} <br>
+          {% endfor %}
+        {% endif %}
+     {% endif %}
+   </div>
+
+   <form action="{% url 'hotel_manager:hallway' %}" method="post">
+     {% csrf_token %}
+     <div class="button" id="join_room">
+      Raum beitreten
+     </div>
+     <div id="dimmer_container">
+       <div class="dimmer" id="upper_dimmer">
+       </div>
+       <div class="text" id="roomnr_text">
+        Raumschlüssel:
+       </div>
+       <input class="input" id="roomkey_input" name="room_key">
+       <div class="dimmer" id="lower_dimmer">
+       </div>
+         <div class="text" id="roomkey_text">
+          Raumnummer:
+         </div>
+         <input class="input" id="roomnr_input" name="room_nr">
+       <div class="" id="submit">
+        Weiter
+       </div>
+       <div class="text" id="oder">
+        Oder
+       </div>
+     </div>
+    </div>
+      <input type="text" name="join" value="true" hidden="true">
+      <input type="submit" name="" value="" id="join_room_submit" hidden="true">
+  </form>
+
+  <form action="{% url 'hotel_manager:hallway' %}" method="post" hidden="true">
+    {% csrf_token %}
+    <input type="text" name="create" value="true">
+    <input type="submit" name="" value="" id="new_room_submit">
+  </form>
+ </body>
+ <script type="text/javascript" src="{% static 'hotel_manager/entrance.js'%}"></script>
+</html>

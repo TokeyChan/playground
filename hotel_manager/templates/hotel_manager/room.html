@@ -1,0 +1,67 @@
+{% load static %}
+<html>
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <meta content="chrome=1,IE=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Room
+  </title>
+  <meta content="user-scalable=yes, width=1240" name="viewport"/>
+  <link href="{% static 'hotel_manager/room/room.css'%}" rel="stylesheet"/>
+ </head>
+ <body>
+  <div id="main_container" style="margin: auto; position: relative; width: 1240px; height: 800px; overflow: hidden; -webkit-transform-style: flat;">
+   <div class="text_box" id="room_header">
+    Room Nr. {{ room.room_nr }} ({{ room.owner.name }}) Room Key: {{ room.room_key }}
+   </div>
+   <div class="text_box" id="link_header">
+     Einladungslink: <a href={{ room.join_link }}>{{ room.join_link }}</a>
+   </div>
+
+   <div class="player_container" id="player_container_left">
+       <div class="avatar_box" id="player1_symbol">
+       </div>
+       <div class="player_name" id="player_name_1">
+        NAME
+       </div>
+   </div>
+
+   <div class="text_box" {% if room.owner == player %} id="game_owner_header" {% else %} id="game_header" {% endif %}>
+    Kein Spiel ausgewählt
+   </div>
+   {% if room.owner == player %}
+   <div id="game_overlay">
+     <!-- <div class="game_picker"></div> -->
+   </div>
+   {% endif %}
+
+   <div class="player_container" id="player_container_right">
+   </div>
+   <div class="" id="chat_box">
+     <table id="chat_table">
+     </table>
+   </div>
+   <div class="" id="chat_dimmer">
+   </div>
+   <input class="" id="chat_input">
+   <div class="" id="send_button">
+   </div>
+     {% if room.owner == player %}
+       <div class="" id="start_button">
+        Spiel Starten
+       </div>
+     {% endif %}
+  </div>
+
+  <form action="{% url 'hotel_manager:hallway' %}" method="post" hidden="true">
+    {% csrf_token %}
+    <input type="text" name="game" value="true">
+    <input type="text" name="room_nr" value="{{ room.room_nr }}">
+    <input type="submit" id="start_game">
+  </form>
+ </body>
+ <script type="text/javascript" src={% static 'hotel_manager/room/players.js' %}></script>
+ <script type="text/javascript" src={% static 'hotel_manager/room/chat.js' %}></script>
+ <script type="text/javascript" src={% static 'hotel_manager/room/room_websocket.js' %}></script>
+ <script type="text/javascript" src={% static 'hotel_manager/room/room.js' %}></script>
+</html>

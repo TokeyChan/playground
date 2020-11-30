@@ -1,0 +1,95 @@
+/* Hype Parser Stylesheet */
+html {
+   height:100%;
+ }
+ body {
+   background-color:#FFFFFF;
+   margin:0;
+   height:100%;
+ }
+
+#avatar {
+  pointer-events: auto;
+  position: absolute;
+  background-size: 100% 100%;
+  -webkit-background-size: 100%;
+  border: 2px solid rgb(0, 0, 0);
+  background-image: url("http://127.0.0.1:59348/preview/D0123C71-FDB0-44F0-BB6B-E9E037968B64-6355-00002E31AED2A02E/index.hyperesources/red_figure.png");
+  border-bottom-left-radius: 10px;
+  overflow: visible;
+  border-bottom-right-radius: 10px;
+  z-index: 4;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 338px;
+  height: 338px;
+  transform-origin: 50% 50%;
+  transform: translateX(449px) translateY(171px) rotateY(0deg);
+  background-repeat: no-repeat no-repeat;
+  }
+#join_button {
+  pointer-events: auto;
+  position: absolute;
+  z-index: 1;
+  border: 1px solid rgb(0, 0, 0);
+  padding: 6px;
+  -webkit-user-select: none;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  line-height: 53px;
+  word-wrap: break-word;
+  display: inline;
+  font-size: 16px;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  overflow: visible;
+  width: 328px;
+  height: 52px;
+  transform-origin: 50% 50%;
+  transform: translateX(449px) translateY(654px) rotateY(0deg);
+  }
+.text {
+  pointer-events: auto;
+  position: absolute;
+  border: 1px solid rgb(216, 221, 228);
+  background-color: rgb(232, 235, 237);
+  overflow: visible;
+  width: 404px;
+  height: 41px;
+  transform-origin: 50% 50%;
+  }
+#room_name {
+  line-height: 42px;
+  z-index: 3;
+  text-align: center;
+  transform: translateX(417px) translateY(79px) rotateY(0deg);
+}
+#name_input {
+  z-index: 2;
+  transform: translateX(417px) translateY(562px) rotateY(0deg);
+  text-align: center;
+  font-size: 16px
+}
+.arrow {
+  pointer-events: auto;
+  position: absolute;
+  overflow: visible;
+  background-size: 100% 100%;
+  -webkit-background-size: 100%;
+  display: inline;
+  transform-origin: 50% 50%;
+  width: 60px;
+  height: 53px;
+  background-repeat: no-repeat no-repeat;
+  }
+#arrow_left {
+  background-image: url("http://127.0.0.1:59348/preview/D0123C71-FDB0-44F0-BB6B-E9E037968B64-6355-00002E31AED2A02E/index.hyperesources/arrow_left.png");
+  z-index: 5;
+  transform: translateX(383px) translateY(315px) scaleX(0.6766666666666666) scaleY(0.6717693129227482);}
+#arrow_right {
+  background-image: url("http://127.0.0.1:59348/preview/D0123C71-FDB0-44F0-BB6B-E9E037968B64-6355-00002E31AED2A02E/index.hyperesources/arrow_right.png");
+  z-index: 6;
+  transform: translateX(797px) translateY(315px) scaleX(0.6666666666666666) scaleY(0.660377358490566);}
