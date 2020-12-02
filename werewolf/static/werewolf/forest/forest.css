@@ -43,7 +43,10 @@ html {
   transform-origin: 50% 50%;
   transform: translateX(499px) translateY(675px) rotateY(0deg);
   cursor: pointer;
-  }
+}
+#start_button:hover {
+  background-color: rgb(40, 40, 40);
+}
 .player_container {
   pointer-events: auto;
   position: absolute;
@@ -94,12 +97,6 @@ html {
 #settings_table td {
   width: 50%;
 }
-.left_cell {
-  text-align: right;
-}
-.right_cell {
-
-}
 
 #game_footer {
   z-index: 4;
@@ -142,4 +139,40 @@ html {
   height: 800px;
   overflow: hidden;
   -webkit-transform-style: flat;
+}
+
+.player_name {
+  pointer-events: auto;
+  position: absolute;
+  border-style: solid none;
+  line-height: 27px;
+  font-size: 12px;
+  border-width: 1px 0px;
+  border-color: rgb(0, 0, 0) rgb(216, 221, 228);
+  overflow: visible;
+  text-align: center;
+  width: 120px;
+  height: 27px;
+  transform-origin: 50% 50%;
+  }
+.avatar_box {
+  pointer-events: auto;
+  position: absolute;
+  border-style: none;
+  background-color: rgb(232, 235, 237);
+  border-color: rgb(216, 221, 228) rgb(216, 221, 228) rgb(0, 0, 0);
+  overflow: visible;
+  width: 120px;
+  height: 107px;
+  transform-origin: 50% 50%;
+  }
+#player1_symbol {
+  z-index: 13;
+  transform: translateX(0px) translateY(0px) rotateY(0deg);
+  display: none;
+}
+#player_name_1 {
+  background-color: rgb(0, 81, 237);
+  transform: translateX(0px) translateY(83px) rotateY(0deg);
+  display: none;
 }

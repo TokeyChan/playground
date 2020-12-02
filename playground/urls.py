@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from werewolf import consumers as wolfs
 from hotel_manager import consumers as tourists
 from hotel_manager import views as hotel_views
 
@@ -28,5 +29,6 @@ urlpatterns = [
 
 
 websocket_urlpatterns = [
-    path('room/<room_nr>', tourists.RoomConsumer.as_asgi())
+    path('room/<room_nr>', tourists.RoomConsumer.as_asgi()),
+    path('werewolf/forest/<room_nr>', wolfs.ForestConsumer.as_asgi())
 ]

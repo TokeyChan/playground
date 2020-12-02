@@ -13,7 +13,6 @@ class PlaygroundConsumer(AsyncWebsocketConsumer):
             return False
         p = Player.objects.get(session_id=self.scope['session']['session_id'])
         room = Room.objects.get(room_nr=self.scope['url_route']['kwargs']['room_nr'])
-
         if p.active_room == room:
             return True
         else:
@@ -63,3 +62,11 @@ class PlaygroundConsumer(AsyncWebsocketConsumer):
         room = Room.objects.get(room_nr=self.scope['url_route']['kwargs']['room_nr'])
         room.game = Game.objects.get(name=game_name)
         room.save()
+
+    @database_sync_to_async
+    def get_owner(self, room_nr):
+        return self.room.owner
+
+    @database_sync_to_async
+    def active_game(self):
+        return self.room.game.name

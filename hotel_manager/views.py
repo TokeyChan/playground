@@ -35,9 +35,9 @@ def hallway(request):
 
     if 'session_id' in request.session:
         player = Player.objects.get(session_id=request.session['session_id'])
-        if player.active_room != None:
-            player.active_room = None
-            player.save()
+        #if player.active_room != None:
+        #    player.active_room = None
+        #    player.save()
     if 'login' in request.POST.keys():
         player = Player(name=request_data['name'], session_id=Player.next_sessionid(), creation_date=timezone.now())
         player.save()
@@ -71,17 +71,19 @@ def hallway(request):
                 if not player.has_permission(Room.objects.get(room_key=request_data['room_key'])):
                     rp = RoomPermission(room=Room.objects.get(room_key=request_data['room_key']), player=Player.objects.get(session_id=request.session['session_id']))
                     rp.save()
+                    #player.active_room = Room.objects.get(room_key=request_data['room_key'])
                 return redirect('hotel_manager:room', room_nr=Room.objects.get(room_key=request_data['room_key']))
             if 'room_nr' in request_data.keys():
                 try:
                     if player.has_permission(Room.objects.get(room_nr=request_data['room_nr'])):
+                        player.active_room = Room.objects.get(room_nr=request_data['room_nr'])
+                        player.save()
                         return redirect('hotel_manager:room', room_nr=request_data['room_nr'])
                     #KNOCK
                     return HttpResponse("Knock Knock at Room " + request_data['room_nr'])
                 except:
                     pass
 
-    print(request_data.keys())
     if 'start_game' in request_data.keys():
         room = Room.objects.get(room_nr = request_data['room_nr'])
         return redirect(room.game.link, room_nr=room.room_nr)

@@ -14,9 +14,14 @@
   <div id="main_container">
    <div class="" id="bg-img">
    </div>
-   <div class="player_container" id="player_container_right">
-   </div>
    <div class="player_container" id="player_container_left">
+     <div class="avatar_box" id="player1_symbol">
+     </div>
+     <div class="player_name" id="player_name_1">
+      NAME
+     </div>
+   </div>
+   <div class="player_container" id="player_container_right">
    </div>
    <div class="text_box" id="game_header">
    </div>
@@ -27,10 +32,19 @@
    </div>
    <div class="text_box" id="settings_box">
      <table id="settings_table">
+       {% for setting in settings %}
        <tr>
-         <td class="left_cell">HELLOOOO:</td>
-         <td class="right_cell">Tschüss</td>
+         <td style="text-align: right;">{{setting.name}}:</td>
+         <td><input
+           type="{{setting.type}}"
+           name="{{setting.name}}"
+           value="{{setting.value|default_if_none:''}}"
+           class="setting_value"
+           id="{{setting.name}}_setting"
+           {% if room.owner != player %}disabled="true"{% endif %}
+           ></td>
        </tr>
+       {% endfor %}
      </table>
    </div>
    <div class="text_box" id="game_footer">
@@ -41,7 +55,12 @@
    </div>
    {% endif %}
   </div>
+  <form action="{% url 'werewolf:village' room.room_nr %}" method="post" hidden="true">
+      <input type="submit" name="" value="" id="submit">
+      {% csrf_token %}
+  </form>
  </body>
+ <script type="text/javascript" src="{% static 'werewolf/forest/players.js' %}"></script>
+ <script type="text/javascript" src="{% static 'werewolf/forest/forest_websocket.js' %}"></script>
  <script type="text/javascript" src="{% static 'werewolf/forest/forest.js' %}"></script>
- <script type="text/javascript" src="{% static 'werewolf/forest/websocket.js' %}"></script>
 </html>

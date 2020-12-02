@@ -134,7 +134,20 @@ html {
   cursor: pointer;
   background-color: rgb(255, 255, 255);
 }
-
+.player_name {
+  pointer-events: auto;
+  position: absolute;
+  border-style: solid none;
+  line-height: 27px;
+  font-size: 12px;
+  border-width: 1px 0px;
+  border-color: rgb(0, 0, 0) rgb(216, 221, 228);
+  overflow: visible;
+  text-align: center;
+  width: 97px;
+  height: 26px;
+  transform-origin: 50% 50%;
+  }
 .avatar_box {
   pointer-events: auto;
   position: absolute;
@@ -157,15 +170,6 @@ html {
   transform: translateX(0px) translateY(83px) rotateY(0deg);
   display: none;
 }
-#player2_symbol {
-  z-index: 15;
-  transform: translateX(0px) translateY(111px) rotateY(0deg);
-}
-#player_name_2 {
-  background-color: rgb(53, 237, 0);
-  z-index: 16;
-  transform: translateX(0px) translateY(194px) rotateY(0deg);
-}
 .player_container {
   pointer-events: auto;
   position: absolute;
@@ -182,20 +186,7 @@ html {
 #player_container_right {
   z-index: 5;
   transform: translateX(823px) translateY(145px) rotateY(0deg)}
-.player_name {
-  pointer-events: auto;
-  position: absolute;
-  border-style: solid none;
-  line-height: 27px;
-  font-size: 12px;
-  border-width: 1px 0px;
-  border-color: rgb(0, 0, 0) rgb(216, 221, 228);
-  overflow: visible;
-  text-align: center;
-  width: 97px;
-  height: 26px;
-  transform-origin: 50% 50%;
-  }
+
 
 .game_picker {
   position: relative;

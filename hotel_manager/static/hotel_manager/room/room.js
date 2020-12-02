@@ -1,8 +1,8 @@
 window.addEventListener("load", function() {
   let chat_table = document.getElementById("chat_table");
   var chat_manager = new ChatManager(chat_table);
-  let place_name = window.location.pathname.split('/')[window.location.pathname.split('/').length - 1];
-  var sock = new Socket('ws://' + window.location.host + '/room/' + place_name, chat_manager);
+  let room_nr = window.location.pathname.split('/')[window.location.pathname.split('/').length - 1];
+  var sock = new Socket('ws://' + window.location.host + '/room/' + room_nr, chat_manager);
   let chat_input = document.getElementById("chat_input");
   chat_input.addEventListener('keydown', function(event) {
     if (event.keyCode == 13) {
