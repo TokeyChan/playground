@@ -1,0 +1,47 @@
+{% load static %}
+<html>
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <meta content="chrome=1,IE=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Forest
+  </title>
+
+  <meta content="user-scalable=yes, width=1240" name="viewport"/>
+  <link href="{% static 'werewolf/forest/forest.css' %}" rel="stylesheet"/>
+ </head>
+ <body>
+  <div id="main_container">
+   <div class="" id="bg-img">
+   </div>
+   <div class="player_container" id="player_container_right">
+   </div>
+   <div class="player_container" id="player_container_left">
+   </div>
+   <div class="text_box" id="game_header">
+   </div>
+   <div id="title_text">
+    DIE WERWÖLFE VON <br> DÜSTERWALD
+   </div>
+   <div id="border-line">
+   </div>
+   <div class="text_box" id="settings_box">
+     <table id="settings_table">
+       <tr>
+         <td class="left_cell">HELLOOOO:</td>
+         <td class="right_cell">Tschüss</td>
+       </tr>
+     </table>
+   </div>
+   <div class="text_box" id="game_footer">
+   </div>
+   {% if room.owner == player %}
+   <div class="" id="start_button">
+    Spiel starten
+   </div>
+   {% endif %}
+  </div>
+ </body>
+ <script type="text/javascript" src="{% static 'werewolf/forest/forest.js' %}"></script>
+ <script type="text/javascript" src="{% static 'werewolf/forest/websocket.js' %}"></script>
+</html>

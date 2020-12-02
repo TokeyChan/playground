@@ -55,7 +55,7 @@
 
   <form action="{% url 'hotel_manager:hallway' %}" method="post" hidden="true">
     {% csrf_token %}
-    <input type="text" name="game" value="true">
+    <input type="text" name="start_game" value="true">
     <input type="text" name="room_nr" value="{{ room.room_nr }}">
     <input type="submit" id="start_game">
   </form>

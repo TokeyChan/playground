@@ -81,6 +81,7 @@ def hallway(request):
                 except:
                     pass
 
+    print(request_data.keys())
     if 'start_game' in request_data.keys():
         room = Room.objects.get(room_nr = request_data['room_nr'])
         return redirect(room.game.link, room_nr=room.room_nr)

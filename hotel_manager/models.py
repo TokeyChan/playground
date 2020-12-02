@@ -15,14 +15,14 @@ class Room(models.Model):
         return max([room.room_nr for room in Room.objects.all()]) + 1
 
     def generate_key():
+        letters = string.ascii_uppercase
         generated_key = "".join(random.choice(letters) for i in range(5))
         while len(Room.objects.filter(room_key=generated_key)) > 0:
-            letters = string.ascii_uppercase
             generated_key = "".join(random.choice(letters) for i in range(5))
         return generated_key
 
     def join_link(self):
-        return f"http://127.0.0.1:8000/room/{self.room_nr}?room_key={self.room_key}"
+        return f"http://127.0.0.1:8000/hotel/room/{self.room_nr}?room_key={self.room_key}"
 
 
 

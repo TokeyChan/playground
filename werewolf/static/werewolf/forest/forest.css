@@ -1,0 +1,145 @@
+/* Hype Parser Stylesheet */
+html {
+   height:100%;
+ }
+ body {
+   background-color:#000000;
+   margin:0;
+   height:100%;
+ }
+#bg-img {
+  pointer-events: auto;
+  position: absolute;
+  background-image: url("/static/werewolf/images/forest.jpg");
+  overflow: visible;
+  background-size: 100% 100%;
+  -webkit-background-size: 100%;
+  z-index: 1;
+  display: inline;
+  color: rgb(255, 255, 255);
+  width: 1240px;
+  height: 826px;
+  transform-origin: 50% 50%;
+  transform: translateX(0px) translateY(0px) rotateY(0deg);
+  background-repeat: no-repeat no-repeat;
+  }
+#start_button {
+  pointer-events: auto;
+  position: absolute;
+  color: rgb(255, 255, 255);
+  border-style: solid none;
+  font-family: Zapfino, Script, cursive;
+  letter-spacing: 0px;
+  line-height: 63px;
+  background-color: rgb(0, 0, 0);
+  font-size: 18px;
+  border-width: 1px 0px;
+  border-color: rgb(255, 255, 255);
+  overflow: visible;
+  z-index: 11;
+  text-align: center;
+  width: 241px;
+  height: 41px;
+  transform-origin: 50% 50%;
+  transform: translateX(499px) translateY(675px) rotateY(0deg);
+  cursor: pointer;
+  }
+.player_container {
+  pointer-events: auto;
+  position: absolute;
+  border: 0px none rgb(216, 221, 228);
+  background-color: rgb(0, 0, 0);
+  overflow: visible;
+  -webkit-box-shadow: rgb(0, 0, 0) 11px 10px 18px;
+  box-shadow: rgb(0, 0, 0) 11px 10px 18px;
+  width: 120px;
+  height: 680px;
+  transform-origin: 50% 50%;
+  }
+#player_container_right {
+  z-index: 7;
+  transform: translateX(1081px) translateY(60px) rotateY(0deg)}
+#player_container_left {
+  z-index: 5;
+  transform: translateX(39px) translateY(73px) rotateY(0deg)}
+.text_box {
+  pointer-events: auto;
+  position: absolute;
+  border: 0px none rgb(216, 221, 228);
+  background-color: rgb(0, 0, 0);
+  overflow: visible;
+  -webkit-box-shadow: rgb(0, 0, 0) 11px 10px 18px;
+  box-shadow: rgb(0, 0, 0) 11px 10px 18px;
+  width: 502px;
+  transform-origin: 50% 50%;
+  }
+#game_header {
+  z-index: 2;
+  height: 144px;
+  transform: translateX(369px) translateY(73px) rotateY(0deg)}
+#settings_box {
+  z-index: 3;
+  height: 445px;
+  transform: translateX(369px) translateY(209px) rotateY(0deg);
+  overflow: scroll;
+}
+#settings_table {
+  color: white;
+  border-spacing: 10px;
+  width: 100%;
+}
+#settings_table tr {
+  height: 50px;
+}
+#settings_table td {
+  width: 50%;
+}
+.left_cell {
+  text-align: right;
+}
+.right_cell {
+
+}
+
+#game_footer {
+  z-index: 4;
+  height: 86px;
+  transform: translateX(369px) translateY(654px) rotateY(0deg)}
+#title_text {
+  pointer-events: auto;
+  position: absolute;
+  color: rgb(255, 255, 255);
+  padding: 8px;
+  display: inline;
+  font-family: Zapfino, Script, cursive;
+  font-size: 18px;
+  line-height: 50px;
+  word-wrap: break-word;
+  overflow: visible;
+  white-space: nowrap;
+  z-index: 8;
+  text-align: center;
+  transform-origin: 50% 50%;
+  transform: translateX(440px) translateY(93px) rotateY(0deg);
+  }
+#border-line {
+  pointer-events: auto;
+  position: absolute;
+  border: 1px solid rgb(216, 221, 228);
+  background-color: rgb(232, 235, 237);
+  overflow: visible;
+  z-index: 9;
+  width: 500px;
+  height: 0px;
+  transform-origin: 50% 50%;
+  transform: translateX(369px) translateY(209px) rotateY(0deg);
+  }
+
+#main_container {
+  margin: auto;
+  position: relative;
+  width: 1240px;
+  height: 800px;
+  overflow: hidden;
+  -webkit-transform-style: flat;
+}
